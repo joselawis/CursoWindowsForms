@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.errorFormulario1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorFormulario1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCategoria
@@ -87,6 +90,10 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // errorFormulario1
+            // 
+            this.errorFormulario1.ContainerControl = this;
+            // 
             // frmForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,6 +110,7 @@
             this.Text = "Mi primera App";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorFormulario1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +124,7 @@
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.ErrorProvider errorFormulario1;
     }
 }
 

@@ -33,15 +33,42 @@ namespace CursoWindowsFormsApp
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Categoria cat = new Categoria();
-            cat.idCategoria = int.Parse(txtCategoria.Text);
-            cat.nombreCategoria = txtNombre.Text;
+            try
+            {
+                if ("".Equals(txtCategoria.Text))
+                {
+                    errorFormulario1.SetError(txtCategoria, "Ingrese categoria");
+                    return;
+                }
+                else
+                {
+                    errorFormulario1.SetError(txtCategoria, "");
+                }
+                if ("".Equals(txtNombre.Text))
+                {
+                    errorFormulario1.SetError(txtNombre, "Ingrese Nombre");
+                    return;
+                }
+                else
+                {
+                    errorFormulario1.SetError(txtNombre, "");
+                }
+                int idCategoria = int.Parse(txtCategoria.Text);
+                string nombre = txtNombre.Text;
 
-            listaCategoria.Add(cat);
-            dgvCategoria.DataSource = null;
-            dgvCategoria.DataSource = listaCategoria;
+                Categoria cat = new Categoria();
+                cat.idCategoria = idCategoria;
+                cat.nombreCategoria = nombre;
+                listaCategoria.Add(cat);
 
-            limpiarTextBox();
+                dgvCategoria.DataSource = null;
+                dgvCategoria.DataSource = listaCategoria;
+
+                limpiarTextBox();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error");
+            }
         }
 
         private void limpiarTextBox()
